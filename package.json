@@ -1,0 +1,65 @@
+{
+  "name": "@fanai/firebase-auth-claims-cli",
+  "version": "0.1.0",
+  "description": "CLI for setting custom claims on a user account via the admin sdk",
+  "keywords": [
+    "javascript",
+    "nodejs",
+    "cli",
+    "firebase",
+    "firebase-auth"
+  ],
+  "homepage": "https://github.com/fanai-inc/firebase-auth-claims-cli/blob/master/README.md",
+  "bugs": {
+    "url": "https://github.com/fanai-inc/firebase-auth-claims-cli/issues",
+    "email": "oss@fanai.io"
+  },
+  "main": "./src/bin/index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint src/**",
+    "precommit": "lint-staged",
+    "setClaims": "node src/index.js claim",
+    "format": "prettier --trailing-comma es5 --single-quote --write 'src/*/*.js' '!(node_modules)/**/*.js'"
+  },
+  "bin": {
+    "firebase-claims": "./src/bin/index.js"
+  },
+  "author": {
+    "name": "Shaun Wallace"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fanai-inc/firebase-auth-claims-cli"
+  },
+  "license": "Apache-2.0",
+  "preferGlobal": true,
+  "dependencies": {
+    "await-to-js": "^2.0.1",
+    "chalk": "^2.4.1",
+    "commander": "^2.16.0",
+    "envinfo": "^5.10.0",
+    "firebase-admin": "^5.12.1",
+    "inquirer": "^6.0.0",
+    "node-jq": "^1.3.1"
+  },
+  "engines": {
+    "node": ">=8.11.3"
+  },
+  "devDependencies": {
+    "@firebase/app-types": "^0.3.2",
+    "eslint": "^5.1.0",
+    "eslint-plugin-jest": "^21.17.0",
+    "husky": "^0.14.3",
+    "jest": "^23.4.0",
+    "lint-staged": "^7.2.0",
+    "prettier": "^1.13.7"
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint",
+      "yarn format",
+      "git add"
+    ]
+  }
+}
